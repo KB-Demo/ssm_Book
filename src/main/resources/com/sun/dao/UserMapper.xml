@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.dao.UserMapper">
+
+    <select id="loginCheck" resultType="String">
+        select password from ssmbuild.user where username=#{userName};
+    </select>
+
+    <insert id="registeredUser" parameterType="User">
+        insert into ssmbuild.user(userName,passWord) values(#{userName},#{passWord});
+    </insert>
+
+    <select id="queryUser" resultType="User">
+        select * from ssmbuild.user where username=#{userName};
+    </select>
+
+</mapper>
